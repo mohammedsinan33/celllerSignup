@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header {
+    background-color: rgb(17, 12, 12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+    height: 60px;
+    text-align: center;
+    color: #ddd;
+}
+.header{
+    border-radius: 10px;
+    width: 90%;
+    font-size: larger;
+    display: flex;
+}
+title{
+    text-align: center;
+}
+.login{
+    display: flex;
+    justify-content: flex-end;
+}
+.headingdiv{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+#booking {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+input[type="tel"]{
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+.form-container {
+    width: 100%;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items horizontally */
+    align-items: center; /* Align items vertically in the middle */
+}
+#dob{
+    width: 350%;
+}
+.gender-section {
+    margin-left: 40%;
+    width: 45%;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+select {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 35px;   
+    vertical-align: middle; 
+}
+input[type="password"]{
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+input[type="email"]{
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 18%;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: bold;
+}
+section{
+    border-radius: 18px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+        <h1>Truckin</h1>
+        </div>
+    </header>
+    <main>
+        <section id="booking">
+            <div class="headingdiv">
+               <h2>Create an account</h2>
+            </div>
+            <form id="booking-form">
+                <label for="text">Enter your first name</label>
+                <input type="text" id="Firstname" name="Firstname" required placeholder="First name">
+                <label for="text">Enter your last name</label>
+                <input type="text" id="lastname" name="lastname" required placeholder="Lastname">
+                <label for="text">Enter your email</label>
+                <input type="email" id="Email" name="Email" required placeholder="Email">
+                <div class="form-container">
+                    <div class="dob-section">
+                        <label for="dob">Enter your date of birth</label>
+                        <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" pattern="\d{2}/\d{2}/\d{4}" required>
+                    </div>
+                    <div class="gender-section">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <label for="mobile">Enter Your Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile" pattern="\d{10}" maxlength="10" required>
+                <label for="text">Enter username</label>
+                <input type="email" id="Firstname" name="Firstname" required placeholder="Username">
+                <label for="text">Enter the password</label>
+                <input type="password" id="password" name="Password" required placeholder="Password">
+                <label for="text">Confirm your pasword</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+                
+            <div class="button">
+                <button type="submit">Create</button>
+            </div>    
+            </form>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        (function () {
+    $("#dob").datepicker({
+        dateFormat: "mm/dd/yy", 
+        changeMonth: true, 
+        changeYear: true,
+        yearRange: "-100:+0" 
+    });
+});
+document.querySelector('form').addEventListener('submit', function (event) {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (password.length < 8) {
+        alert('Password must be at least 8 characters long.');
+        event.preventDefault(); 
+    } else if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        event.preventDefault();
+    }
+});
+
+    </script>
+</body>
+</html>
